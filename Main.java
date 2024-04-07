@@ -46,7 +46,7 @@ public class Main {
              break;
          case 7: CallinginReverseOrder();
              break;
-         case 8:
+         case 8: CallingCheckingDigits();
              break;
          case 9:
              break;
@@ -254,8 +254,33 @@ public static int inReverseOrder(int n, int[] arr){
 
 
     }
+/* The function uses recursion approach
+* it takes string and 0 as parameter and implements the same function until index is equal to length of string
+* time complexity is O(n)*/
+public static boolean checkingDigits(String s, int index ){
+        char ch = s.charAt(index);
+        if(Character.isAlphabetic(ch)) {
+            return false;
+        }
+        else if (index==s.length()-1){
+            return true;
+        }
 
+        return checkingDigits(s, index+1);
+    }
 
+    public static void CallingCheckingDigits(){
+        double startTime = System.nanoTime();
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter the string");
+        String s = sc.nextLine();
+
+        System.out.println(checkingDigits(s,0));
+
+        double endTime = System.nanoTime();
+       double  duration = (endTime - startTime) / 1000000;
+       System.out.println("duration is: "+ duration);
+}
 
 
 
