@@ -44,13 +44,13 @@ public class Main {
          case 6:
              CallingDegreeFunction();
              break;
-         case 7:
+         case 7: CallinginReverseOrder();
              break;
          case 8:
              break;
          case 9:
              break;
-             case 10;
+         case 10:
              break;
 
     }
@@ -221,6 +221,39 @@ public static int Fibonacci(int n){
        System.out.println("duration is: "+ duration);
     }
 
+
+    /*The function takes n as input, stores n input values in array then calls another function with this parameters
+    *  then it output the n th element of array and in it calls the same function with parameter n-1 intil n=1
+    * function use recursion approach
+    * Time complexity is O(n)*/
+public static int inReverseOrder(int n, int[] arr){
+        if (n == 1||n==0) {
+           return arr[0];
+
+        }
+        System.out.print(arr[n-1]+" ");
+        return inReverseOrder(n-1,arr);
+    }
+
+    public static void CallinginReverseOrder (){
+     double startTime = System.nanoTime();
+     System.out.println("Enter the value of n (number of elements)");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+    // Read the elements from the user and store them in the array
+    System.out.println("Enter " + n + " elements:");
+    for (int i = 0; i < n; i++) {
+        arr[i] = sc.nextInt();
+    }
+        System.out.println(inReverseOrder(n,arr));
+    double endTime = System.nanoTime();
+       double  duration = (endTime - startTime) / 1000000;
+       System.out.println("duration is: "+ duration);
+
+
+    }
 
 
 
