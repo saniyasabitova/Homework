@@ -27,10 +27,21 @@ public class Main {
     int c = sc.nextInt();
      switch(c){
         case 1:
-            minimumOfArray();
+            Callingminimum();
+            break;
          case 2:
+             CallingAverage();
+             break;
 
     }
+     }
+     public static void Callingminimum() {
+        double startTime = System.nanoTime();
+        minimumOfArray();
+       double endTime = System.nanoTime();
+       double  duration = (endTime - startTime) / 1000000;
+       System.out.println(duration);
+
      }
 //Function find then prints each minimum element of array. It takes 10000 as minimum by default, then compares each element
 //with it, if the element is smaller, it becomes the minimum.
@@ -52,8 +63,40 @@ public class Main {
                min = arr[i];
            }
        }
-        System.out.println("The minimum value:" + min);
+       System.out.println("The minimum value:" + min);
 
     }
+
+// Function takes 0 as sum in the beginning ,then each iteration adds new element of array. Then divides them by n to find average value
+// Time complexity: O(n);
+public static void AverageOfArray (){
+        System.out.println("Write number of elements");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+        System.out.println("Enter the numbers");
+        for (int i= 0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+
+        int c =0;
+        for (int i=0;i<n;i++){
+            c+=arr[i];
+        }
+        double b = c/n;
+
+        System.out.println("Average value of function is"+" "+b);
+    }
+
+    public static void CallingAverage() {
+        double startTime = System.nanoTime();
+        AverageOfArray();
+       double endTime = System.nanoTime();
+       double  duration = (endTime - startTime) / 1000000;
+       System.out.println("duration is: "+ duration);
+
+     }
+
 
 }
