@@ -29,8 +29,11 @@ public class Main {
         case 1:
             Callingminimum();
             break;
-         case 2:
+            case 2:
              CallingAverage();
+             break;
+         case 3:
+             CallingcheckingComposite();
              break;
 
     }
@@ -45,7 +48,7 @@ public class Main {
      }
 //Function find then prints each minimum element of array. It takes 10000 as minimum by default, then compares each element
 //with it, if the element is smaller, it becomes the minimum.
-//Time complexity: O(n);
+//Time complexity is linear: O(n);
     public static  void minimumOfArray(){
         System.out.println("Enter the value of n (number of elements)");
         Scanner sc = new Scanner(System.in);
@@ -68,7 +71,7 @@ public class Main {
     }
 
 // Function takes 0 as sum in the beginning ,then each iteration adds new element of array. Then divides them by n to find average value
-// Time complexity: O(n);
+// Time complexity is linear: O(n);
 public static void AverageOfArray (){
         System.out.println("Write number of elements");
         Scanner sc = new Scanner(System.in);
@@ -97,6 +100,34 @@ public static void AverageOfArray (){
        System.out.println("duration is: "+ duration);
 
      }
+    /*  *The function checks if the number is prime or not
+    * *  it tries to divide the number by half of numbers before it, if it can be divided only by 1 of them, the number is composite
+    * Time complexity is linear = O(n)  */
+     public static boolean checkingComposite() {
+        System.out.println("Enter the number");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for (int i=2;i<n/2;i++){
+            if(n%i==0){
+                System.out.println("The number is composite");
+                return false;
+            }
+        }
+        System.out.println("The number is prime");
+        return true;
+
+    }
+     public static void CallingcheckingComposite (){
+        double startTime = System.nanoTime();
+        checkingComposite();
+       double endTime = System.nanoTime();
+       double  duration = (endTime - startTime) / 1000000;
+       System.out.println("duration is: "+ duration);
+
+     }
+
+
+
 
 
 }
