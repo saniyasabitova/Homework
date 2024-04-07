@@ -35,6 +35,23 @@ public class Main {
          case 3:
              CallingcheckingComposite();
              break;
+         case 4:
+             callingFactorial();
+             break;
+         case 5:
+             CallingFibonacci();
+             break;
+         case 6:
+             CallingDegreeFunction();
+             break;
+         case 7:
+             break;
+         case 8:
+             break;
+         case 9:
+             break;
+             case 10;
+             break;
 
     }
      }
@@ -176,6 +193,33 @@ public static int Fibonacci(int n){
        System.out.println("duration is: "+ duration);
 
       }
+
+/* This function finds n's a degree using recursion approach
+* it multiplies n by the same function but with smaller a parameter
+* in the base case, if a is 1, returns n
+* time complexity is O(a) */
+
+ public static int findingDegree(int n, int a){
+        if(a==0){
+            return 1;
+        } else if (a==1) {
+           return n;
+        }
+        return n*findingDegree(n,a-1);
+    }
+
+    public static void CallingDegreeFunction(){
+        double startTime = System.nanoTime();
+        System.out.println("Enter the number");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println("Enter the degree");
+        int c = sc.nextInt();
+        System.out.println(findingDegree(n,c));
+        double endTime = System.nanoTime();
+       double  duration = (endTime - startTime) / 1000000;
+       System.out.println("duration is: "+ duration);
+    }
 
 
 
