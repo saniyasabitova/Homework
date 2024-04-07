@@ -127,6 +127,32 @@ public static void AverageOfArray (){
      }
 
 
+     /* This function finds factorial of input number using recursion approach
+     * Time complexity is O(n) */
+      public static int FindingFactorial(int n){
+
+        if(n==1){
+            return 1;
+        } else if (n==0) {
+            return 1;
+        }
+
+        return n * FindingFactorial(n-1);
+    }
+
+    public static void callingFactorial(){
+        double startTime = System.nanoTime();
+         System.out.println("Enter the number");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(FindingFactorial(n));
+       double endTime = System.nanoTime();
+       double  duration = (endTime - startTime) / 1000000;
+       System.out.println("duration is: "+ duration);
+    }
+
+
+
 
 
 
