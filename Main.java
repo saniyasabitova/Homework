@@ -151,6 +151,34 @@ public static void AverageOfArray (){
        System.out.println("duration is: "+ duration);
     }
 
+    /* The function finds Fibonacci sequence up to given number using recursion approach
+    * n is input number
+    * Time complexity O(2^n)*/
+
+public static int Fibonacci(int n){
+        if(n==1){
+            return 1;
+        }
+        else if(n==0){
+            return 0;
+        }
+        return Fibonacci(n-1)+Fibonacci(n-2);
+    }
+
+    public static void CallingFibonacci(){
+        System.out.println("Enter the value number to find sequence");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        double startTime = System.nanoTime();
+        System.out.println(Fibonacci(n));
+         double endTime = System.nanoTime();
+       double  duration = (endTime - startTime) / 1000000;
+       System.out.println("duration is: "+ duration);
+
+      }
+
+
+
 
 
 
