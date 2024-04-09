@@ -48,9 +48,9 @@ public class Main {
              break;
          case 8: CallingCheckingDigits();
              break;
-         case 9:
+         case 9:CallingtheBimomialCoefficient();
              break;
-         case 10:
+         case 10:CallingGCD();
              break;
 
     }
@@ -94,13 +94,13 @@ public static void AverageOfArray (){
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        int[] arr = new int[n];
+        double[] arr = new double[n];
         System.out.println("Enter the numbers");
         for (int i= 0;i<n;i++){
             arr[i] = sc.nextInt();
         }
-
-        int c =0;
+        sc.close();
+        double c =0;
         for (int i=0;i<n;i++){
             c+=arr[i];
         }
@@ -119,7 +119,7 @@ public static void AverageOfArray (){
      }
     /*  *The function checks if the number is prime or not
     * *  it tries to divide the number by half of numbers before it, if it can be divided only by 1 of them, the number is composite
-    * Time complexity is linear = O(n)  */
+    * Time complexity is linear = O(n) indeed O/2 but 2/1 is just coefficient  */
      public static boolean checkingComposite() {
         System.out.println("Enter the number");
         Scanner sc = new Scanner(System.in);
@@ -197,7 +197,7 @@ public static int Fibonacci(int n){
 /* This function finds n's a degree using recursion approach
 * it multiplies n by the same function but with smaller a parameter
 * in the base case, if a is 1, returns n
-* time complexity is O(a) */
+* time complexity is O(a) where a is degree*/
 
  public static int findingDegree(int n, int a){
         if(a==0){
@@ -225,7 +225,7 @@ public static int Fibonacci(int n){
     /*The function takes n as input, stores n input values in array then calls another function with this parameters
     *  then it output the n th element of array and in it calls the same function with parameter n-1 intil n=1
     * function use recursion approach
-    * Time complexity is O(n)*/
+    * Time complexity is O(n) n is size of array*/
 public static int inReverseOrder(int n, int[] arr){
         if (n == 1||n==0) {
            return arr[0];
@@ -256,7 +256,7 @@ public static int inReverseOrder(int n, int[] arr){
     }
 /* The function uses recursion approach
 * it takes string and 0 as parameter and implements the same function until index is equal to length of string
-* time complexity is O(n)*/
+* time complexity is O(n) where n is length of string*/
 public static boolean checkingDigits(String s, int index ){
         char ch = s.charAt(index);
         if(Character.isAlphabetic(ch)) {
@@ -271,8 +271,9 @@ public static boolean checkingDigits(String s, int index ){
 
     public static void CallingCheckingDigits(){
         double startTime = System.nanoTime();
-        Scanner sc =new Scanner(System.in);
+
         System.out.println("Enter the string");
+        Scanner sc =new Scanner(System.in);
         String s = sc.nextLine();
 
         System.out.println(checkingDigits(s,0));
@@ -281,6 +282,66 @@ public static boolean checkingDigits(String s, int index ){
        double  duration = (endTime - startTime) / 1000000;
        System.out.println("duration is: "+ duration);
 }
+
+/*The function uses a recursive approach to calculate the binomial coefficient:
+
+If k is equal to 0 or k is equal to  a, it returns 1.
+Otherwise, it calculates and recursively and sums them up.
+The time complexity of this recursive function is O(2^a)
+  because for each call to the function, it branches into two more recursive calls (except for the base cases).
+   time complexity is O(2^a)*/
+public static int theBinomialCoefficient(int a,int k){
+
+        if(k==0||k==a){
+            return 1;
+        }
+
+        return theBinomialCoefficient(a-1,k-1)+theBinomialCoefficient(a-1,k);
+    }
+
+    public static void CallingtheBimomialCoefficient (){
+      double startTime = System.nanoTime();
+     System.out.println("Enter the value of n ");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println("Enter the second element (the k by formule)");
+        int c = sc.nextInt();
+        System.out.println(theBinomialCoefficient(n,c));
+        double endTime = System.nanoTime();
+       double  duration = (endTime - startTime) / 1000000;
+       System.out.println("duration is: "+ duration);
+
+    }
+    /*The function finds great common divisor using Euclid algorithm
+    * method uses recursive approach to find GCD
+    * it finds reminder of dividing parameters then takes the reminder as second parameter and second parameter of previous mehtod as first in the next call
+    * Time complexity is O(log(min(a, b))).*/
+
+    public  static int  GCD (int a, int b){
+        int c = a%b;
+        if (b==0){
+            return a;
+        }
+        if(c==0){
+            return b;
+        }
+      return  GCD (b,c);
+    }
+    public static void CallingGCD (){
+        System.out.println("Please, enter the input value number 1 ");
+        Scanner sc= new Scanner(System.in);
+        int a = sc.nextInt();
+        System.out.println("Please, enter the input value number 2 ");
+        int b = sc.nextInt();
+         double startTime = System.nanoTime();
+        System.out.println(GCD(a,b));
+        double endTime = System.nanoTime();
+       double  duration = (endTime - startTime) / 1000000;
+       System.out.println("duration is: "+ duration);
+
+
+
+    }
 
 
 
